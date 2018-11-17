@@ -8,20 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		2C299FF821A0A26600D67D46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C299FF721A0A26600D67D46 /* AppDelegate.swift */; };
-		2C299FFA21A0A26600D67D46 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C299FF921A0A26600D67D46 /* ViewController.swift */; };
 		2C299FFD21A0A26600D67D46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C299FFB21A0A26600D67D46 /* Main.storyboard */; };
 		2C299FFF21A0A26900D67D46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C299FFE21A0A26900D67D46 /* Assets.xcassets */; };
 		2C29A00221A0A26900D67D46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C29A00021A0A26900D67D46 /* LaunchScreen.storyboard */; };
+		2C29A00A21A0AAA900D67D46 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C29A00921A0AAA900D67D46 /* RootViewController.swift */; };
+		2C29A00C21A0AB5F00D67D46 /* FavouritesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C29A00B21A0AB5F00D67D46 /* FavouritesList.swift */; };
+		2C29A00E21A0B17400D67D46 /* FontListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C29A00D21A0B17400D67D46 /* FontListViewController.swift */; };
+		2C29A01021A0B2CC00D67D46 /* FontSizesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C29A00F21A0B2CC00D67D46 /* FontSizesViewController.swift */; };
+		2C29A01221A0B82200D67D46 /* FontInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C29A01121A0B82200D67D46 /* FontInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2C299FF421A0A26600D67D46 /* Lab5-Nav.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lab5-Nav.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C299FF721A0A26600D67D46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2C299FF921A0A26600D67D46 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2C299FFC21A0A26600D67D46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2C299FFE21A0A26900D67D46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C29A00121A0A26900D67D46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C29A00321A0A26900D67D46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C29A00921A0AAA900D67D46 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		2C29A00B21A0AB5F00D67D46 /* FavouritesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesList.swift; sourceTree = "<group>"; };
+		2C29A00D21A0B17400D67D46 /* FontListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontListViewController.swift; sourceTree = "<group>"; };
+		2C29A00F21A0B2CC00D67D46 /* FontSizesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSizesViewController.swift; sourceTree = "<group>"; };
+		2C29A01121A0B82200D67D46 /* FontInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontInfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +63,15 @@
 			isa = PBXGroup;
 			children = (
 				2C299FF721A0A26600D67D46 /* AppDelegate.swift */,
-				2C299FF921A0A26600D67D46 /* ViewController.swift */,
 				2C299FFB21A0A26600D67D46 /* Main.storyboard */,
 				2C299FFE21A0A26900D67D46 /* Assets.xcassets */,
 				2C29A00021A0A26900D67D46 /* LaunchScreen.storyboard */,
 				2C29A00321A0A26900D67D46 /* Info.plist */,
+				2C29A00921A0AAA900D67D46 /* RootViewController.swift */,
+				2C29A00D21A0B17400D67D46 /* FontListViewController.swift */,
+				2C29A00F21A0B2CC00D67D46 /* FontSizesViewController.swift */,
+				2C29A00B21A0AB5F00D67D46 /* FavouritesList.swift */,
+				2C29A01121A0B82200D67D46 /* FontInfoViewController.swift */,
 			);
 			path = "Lab5-Nav";
 			sourceTree = "<group>";
@@ -135,8 +147,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C299FFA21A0A26600D67D46 /* ViewController.swift in Sources */,
 				2C299FF821A0A26600D67D46 /* AppDelegate.swift in Sources */,
+				2C29A00E21A0B17400D67D46 /* FontListViewController.swift in Sources */,
+				2C29A00A21A0AAA900D67D46 /* RootViewController.swift in Sources */,
+				2C29A01221A0B82200D67D46 /* FontInfoViewController.swift in Sources */,
+				2C29A01021A0B2CC00D67D46 /* FontSizesViewController.swift in Sources */,
+				2C29A00C21A0AB5F00D67D46 /* FavouritesList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

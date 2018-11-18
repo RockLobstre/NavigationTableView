@@ -16,9 +16,16 @@ class RootViewController: UITableViewController {
     private static let familyCell = "FamilyName"
     private static let favouritesCell = "Favourites"
     
+    //this application event triggers every time the view is going to be rendered
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
+    //this application event triggers the first time the application is loaded
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         familyNames = (UIFont.familyNames as [String]).sorted()
         let preferredTableViewFont = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline)
         cellPointSize = preferredTableViewFont.pointSize
@@ -26,11 +33,7 @@ class RootViewController: UITableViewController {
         tableView.estimatedRowHeight = cellPointSize
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tableView.reloadData()
-    }
-    
+    //utility methods
     func fontForDisplay(atIndexPath indexPath: NSIndexPath) -> UIFont? {
         if indexPath.section == 0 {
             let familyName =  familyNames[indexPath.row]
@@ -41,6 +44,7 @@ class RootViewController: UITableViewController {
         }
     }
     
+    //data source methods
     override func numberOfSections(in tableView: UITableView) -> Int {
         return favouriteList.favourites.isEmpty ?  1 : 2
     }
@@ -68,5 +72,21 @@ class RootViewController: UITableViewController {
     }
     
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let indexPath =  tableView.indexPath(for: sender as! UITableViewCell)!
+        let listVC = segue.destination as! FontListViewController
+        
+        if indexPath.section == 0 {
+            let familyName = familyNames[indexPath.row]
+            listVC.fontNames = (UIFont.fontNames(forFamilyName: familyName) as [String]).sorted()
+            listVC.navigationItem.title =  familyName
+            listVC.showsFavourites = false
+        }else{
+            
+            listVC.fontNames = favouriteList.favourites
+            listVC.navigationItem.title = "Favourites"
+            listVC.showsFavourites = true
+        }
+    }
+    
 }

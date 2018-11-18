@@ -19,18 +19,54 @@ class RootViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        familyNames = (UIFont.familyNames as [String]).sorted()
+        let preferredTableViewFont = UIFont.preferredFont(forTextStyle: UIFont.TextStyle.headline)
+        cellPointSize = preferredTableViewFont.pointSize
+        favouriteList = FavouritesList.sharedFavouritesList
+        tableView.estimatedRowHeight = cellPointSize
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
-    */
+    
+    func fontForDisplay(atIndexPath indexPath: NSIndexPath) -> UIFont? {
+        if indexPath.section == 0 {
+            let familyName =  familyNames[indexPath.row]
+            let fontName = UIFont.fontNames(forFamilyName: familyName).first
+            return fontName != nil ? UIFont(name: fontName!, size: cellPointSize) :  nil
+        }else{
+            return nil
+        }
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return favouriteList.favourites.isEmpty ?  1 : 2
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return section == 0 ? familyNames.count : 1
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return section == 0 ? "All Font Families" : "My Favourites Fonts"
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: RootViewController.familyCell, for: indexPath)
+            cell.textLabel?.font = fontForDisplay(atIndexPath: indexPath as NSIndexPath)
+            cell.textLabel?.text = familyNames[indexPath.row]
+            cell.detailTextLabel?.text = familyNames[indexPath.row]
+            return cell
+        }else {
+            
+            return tableView.dequeueReusableCell(withIdentifier: RootViewController.favouritesCell, for: indexPath)
+            
+        }
+    }
+    
+    
 
 }
